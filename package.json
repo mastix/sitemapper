@@ -42,11 +42,10 @@
     }
   ],
   "scripts": {
-    "broccoli": "broccoli build lib",
-    "start": "node lib/examples/index.js",
+    "start": "node --require esm lib/examples/index.js",
     "test": "NODE_ENV=test mocha --require esm --recursive tests/",
-    "lint": "eslint /src",
-    "docs": "documentation -g -o docs.md -f md src/assets/sitemapper.js"
+    "lint": "eslint /lib",
+    "docs": "documentation build -g -o docs.md -f md lib/sitemapper.js"
   },
   "maintainers": [
     {
@@ -62,22 +61,22 @@
     "node": ">= 8.0.0"
   },
   "devDependencies": {
-    "async": "^2.0.1",
-    "documentation": "^3.0.4",
-    "eslint": "^3.2.2",
-    "eslint-config-airbnb-base": "^5.0.1",
-    "eslint-plugin-import": "^1.12.0",
-    "is-url": "^1.2.2",
+    "async": "^2.6.1",
+    "documentation": "^8.1.2",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "is-url": "^1.2.4",
     "mocha": "^5.2.0",
     "should": "^13.2.3"
   },
   "dependencies": {
     "bluebird": "^3.5.2",
-    "es6-promise": "^3.2.1",
+    "es6-promise": "^4.2.5",
     "esm": "^3.0.82",
     "request": "^2.88.0",
-    "request-promise": "^4.1.0",
-    "xml2js-es6-promise": "^1.0.3"
+    "request-promise": "^4.2.2",
+    "xml2js-es6-promise": "^1.1.1"
   },
   "esm": {
     "cjs": true,

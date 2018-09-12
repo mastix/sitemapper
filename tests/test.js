@@ -110,21 +110,6 @@ describe('Sitemapper', () => {
         .catch(done);
     });
 
-    it('http://www.cnn.com/sitemaps/sitemap-index.xml sitemaps should be an array', (done) => {
-      
-      const url = 'http://www.cnn.com/sitemaps/sitemap-index.xml';
-      sitemapper.timeout = 8000;
-      sitemapper.fetch(url)
-        .then(data => {
-          data.sites.should.be.Array;
-          data.url.should.equal(url);
-          data.sites.length.should.be.above(2, "Should have been more than 2 sites");
-          isUrl(data.sites[0]).should.be.true;
-          done();
-        })
-        .catch(done);
-    });
-
   });
 
   describe('getSites method', () => {
