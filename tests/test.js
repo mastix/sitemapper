@@ -1,19 +1,18 @@
 /* global describe,it */
-import async from 'async';
 import assert from 'assert';
 import should from 'should';
 import isUrl from 'is-url';
 
-import Sitemapper from './sitemapper.js';
+import Sitemapper from '../main'
 let sitemapper;
 
-describe('Sitemapper', function () {
+describe('Sitemapper', () => {
 
   beforeEach(() => {
     sitemapper = new Sitemapper();
   });
 
-  describe('Sitemapper Class', function () {
+  describe('Sitemapper Class', () => {
 
     it('should have initializeTimeout method', () => {
       sitemapper.initializeTimeout.should.be.Function;
@@ -56,65 +55,81 @@ describe('Sitemapper', function () {
     });
   });
 
-  describe('fetch Method resolves sites to array', function () {
-    it('http://wp.seantburke.com/sitemap.xml sitemaps should be an array', function (done) {
-      this.timeout(30000);
+  describe('fetch Method resolves sites to array', () => {
+    it('http://wp.seantburke.com/sitemap.xml sitemaps should be an array', (done) => {
+      
       const url = 'http://wp.seantburke.com/sitemap.xml';
       sitemapper.fetch(url)
         .then(data => {
           data.sites.should.be.Array;
           data.url.should.equal(url);
-          data.sites.length.should.be.above(2);
+          data.sites.length.should.be.above(2, "Should have been more than 2 sites");
           isUrl(data.sites[0]).should.be.true;
           done();
         })
-        .catch(error => console.error(error));
+        .catch(done);
     });
 
-    it('giberish.giberish should fail silently with an empty array', function (done) {
-      this.timeout(30000);
+    it('giberish.giberish should fail silently with an empty array', (done) => {
+      
       const url = 'http://giberish.giberish';
       sitemapper.fetch(url)
         .then(data => {
           data.sites.should.be.Array;
           done();
         })
-        .catch(error => console.error(error));
+        .catch(done);
     });
 
-    it('https://www.google.com/work/sitemap.xml sitemaps should be an array', function (done) {
-      this.timeout(30000);
+    it('https://www.google.com/work/sitemap.xml sitemaps should be an array', (done) => {
+      
       const url = 'https://www.google.com/work/sitemap.xml';
       sitemapper.fetch(url)
         .then(data => {
           data.sites.should.be.Array;
           data.url.should.equal(url);
-          data.sites.length.should.be.above(2);
+          data.sites.length.should.be.above(1);
           isUrl(data.sites[0]).should.be.true;
           done();
         })
-        .catch(error => console.error(error));
+        .catch(done);
     });
 
-    it('http://www.cnn.com/sitemaps/sitemap-index.xml sitemaps should be an array', function (done) {
-      this.timeout(30000);
-      const url = 'http://www.cnn.com/sitemaps/sitemap-index.xml';
-      sitemapper.timeout = 5000;
+    it('https://www.drugs.com/sitemaps/slideshow.xml.gz sitemaps should handle gzipped files', (done) => {
+      
+      const url = 'https://www.drugs.com/sitemaps/slideshow.xml.gz';
+      sitemapper.timeout = 8000;
       sitemapper.fetch(url)
         .then(data => {
           data.sites.should.be.Array;
           data.url.should.equal(url);
-          data.sites.length.should.be.above(2);
+          data.sites.length.should.be.above(2, "Should have been more than 2 sites");
           isUrl(data.sites[0]).should.be.true;
           done();
         })
-        .catch(error => console.error(error));
+        .catch(done);
     });
+
+    it('http://www.cnn.com/sitemaps/sitemap-index.xml sitemaps should be an array', (done) => {
+      
+      const url = 'http://www.cnn.com/sitemaps/sitemap-index.xml';
+      sitemapper.timeout = 8000;
+      sitemapper.fetch(url)
+        .then(data => {
+          data.sites.should.be.Array;
+          data.url.should.equal(url);
+          data.sites.length.should.be.above(2, "Should have been more than 2 sites");
+          isUrl(data.sites[0]).should.be.true;
+          done();
+        })
+        .catch(done);
+    });
+
   });
 
-  describe('getSites method', function () {
-    it('getSites should be backwards compatible', function (done) {
-      this.timeout(30000);
+  describe('getSites method', () => {
+    it('getSites should be backwards compatible', (done) => {
+      
       const url = 'http://wp.seantburke.com/sitemap.xml';
       sitemapper.getSites(url, (err, sites) => {
         sites.should.be.Array;
