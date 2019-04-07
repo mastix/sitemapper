@@ -1,7 +1,7 @@
 {
-  "name": "@cabbiepete/sitemapper",
+  "name": "@mastixmc/sitemapper",
   "version": "3.0.2",
-  "description": "Parser for XML Sitemaps to be used with Robots.txt and web crawlers",
+  "description": "Parser for XML Sitemaps to be used with Robots.txt and web crawlers. (Extended version by mastixmc)",
   "keywords": [
     "parse",
     "sitemap",
@@ -11,10 +11,10 @@
     "crawlers",
     "webcrawler"
   ],
-  "homepage": "http://github.com/cabbiepete/sitemapper",
+  "homepage": "http://github.com/mastixmc/sitemapper",
   "tonicExampleFilename": "example.js",
   "bugs": {
-    "url": "http://github.com/cabbiepete/sitemapper/issues"
+    "url": "http://github.com/mastixmc/sitemapper/issues"
   },
   "license": "MIT",
   "files": [
@@ -26,11 +26,11 @@
   "module": "./main.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cabbiepete/sitemapper.git"
+    "url": "git://github.com/mastixmc/sitemapper.git"
   },
   "author": {
-    "name": "Peter Simmons",
-    "email": "cabbiepete@gmail.com"
+    "name": "Sascha Sambale",
+    "email": "mastixmc@gmail.com"
   },
   "authors": [
     {
@@ -39,8 +39,8 @@
       "url": "http://www.seantburke.com"
     },
     {
-      "name": "Peter Simmons",
-      "email": "cabbiepete@gmail.com"
+      "name": "Sascha Sambale",
+      "email": "mastixmc@gmail.com"
     }
   ],
   "scripts": {
@@ -51,8 +51,8 @@
   },
   "maintainers": [
     {
-      "name": "Peter Simmons",
-      "email": "cabbiepete@gmail.com"
+      "name": "Sascha Sambale",
+      "email": "mastixmc@gmail.com"
     }
   ],
   "directories": {
