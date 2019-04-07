@@ -1,21 +1,19 @@
-## Sitemap-parser
+## Sitemapper - Extended version
 
-Insipired by https://github.com/hawaiianchimp/sitemapper
+This is a fork from https://github.com/cabbiepete/sitemapper, but adds the following features:
 
-Allows loading of sitemap.xml.gz files.
+* Allows loading of sitemap.xml.gz files
+* Increases default timeout
+* Allows to filter by lastmod date
 
-// TODO badges
-[![Build Status](https://travis-ci.org/cabbiepete/sitemapper.svg?branch=master)](https://travis-ci.org/cabbiepete/sitemapper) [![Monthly Downloads](https://img.shields.io/npm/dm/sitemapper.svg)](https://www.npmjs.com/package/sitemapper)
-[![npm version](https://badge.fury.io/js/sitemapper.svg)](https://badge.fury.io/js/sitemapper)
-[![dependencies Status](https://david-dm.org/cabbiepete/sitemapper/status.svg)](https://david-dm.org/cabbiepete/sitemapper)
-[![Inline docs](http://inch-ci.org/github/cabbiepete/sitemapper.svg?branch=master)](http://inch-ci.org/github/cabbiepete/sitemapper)
+### Original description
 
 Parse through a sitemaps xml to get all the urls for your crawler.
 ## Version 3
 
 ### Installation
 ```bash
-npm install @cabbiepete/sitemapper
+npm install @mastixmc/sitemapper
 ```
 
 ### Simple Example
