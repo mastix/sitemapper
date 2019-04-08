@@ -5,6 +5,7 @@ This is a fork from https://github.com/cabbiepete/sitemapper, but adds the follo
 * Allows loading of sitemap.xml.gz files
 * Increases default timeout
 * Allows to filter by lastmod date
+* Added URL filter to filter all returned URLs
 
 ### Original description
 
@@ -38,7 +39,9 @@ const Google = new Sitemapper({
   lastmod: { //filter based on lastmod (here: only get updated links from one week ago)
     duration: '5',
     measurement: 'days' // years, months, weeks, days, hours, minutes, and seconds
-  }
+  },
+  urlFilter: '^https:\/\/www\.mysite\.com\/somepath\/' // REGEX
+
 });
 
 Google.fetch()
@@ -76,8 +79,8 @@ const Google = new Sitemapper({
   lastmod: { //filter based on lastmod (here: only get updated links from one week ago)
     duration: '3',
     measurement: 'days' // years, months, weeks, days, hours, minutes, and seconds
-  }
-
+  },
+    urlFilter: '^https:\/\/www\.mysite\.com\/somepath\/' // REGEX
 });
 
 Google.fetch()
