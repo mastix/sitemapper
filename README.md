@@ -34,7 +34,11 @@ const Sitemapper = require('sitemapper');
 
 const Google = new Sitemapper({
   url: 'https://www.google.com/work/sitemap.xml',
-  timeout: 15000 //15 seconds
+  timeout: 15000, //15 seconds
+  lastmod: { //filter based on lastmod (here: only get updated links from one week ago)
+    duration: '1',
+    measurement: 'weeks' // years, months, weeks, days, hours, minutes, and seconds
+  }
 });
 
 Google.fetch()
@@ -69,6 +73,11 @@ import Sitemapper from 'sitemapper';
 const Google = new Sitemapper({
   url: 'https://www.google.com/work/sitemap.xml',
   timeout: 15000, // 15 seconds
+  lastmod: { //filter based on lastmod (here: only get updated links from one week ago)
+    duration: '1',
+    measurement: 'weeks' // years, months, weeks, days, hours, minutes, and seconds
+  }
+
 });
 
 Google.fetch()
@@ -81,7 +90,10 @@ Google.fetch()
 
 const sitemapper = new Sitemapper();
 sitemapper.timeout = 5000;
-
+sitemapper.lastmod = { //filter based on lastmod (here: only get updated links from one week ago)
+    duration: '1',
+    measurement: 'weeks' // years, months, weeks, days, hours, minutes, and seconds
+};
 sitemapper.fetch('http://wp.seantburke.com/sitemap.xml')
   .then(({ url, sites }) => console.log(`url:${url}`, 'sites:', sites))
   .catch(error => console.log(error));
